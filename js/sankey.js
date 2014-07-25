@@ -12,11 +12,11 @@ Licence: MIT Open Source licence http://www.opensource.org/licenses/mit-license.
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   Sankey = (function() {
-    function Sankey() {
-      this.display_in_element = 'sankey';
-      this.display_width = $("#" + this.display_in_element).width();
-      this.display_height = $("#" + this.display_in_element).height();
-      this.r = Raphael(this.display_in_element, this.display_width, this.display_height);
+    function Sankey( jqSelector ) {
+      this.display_in_element = jqSelector;
+      this.display_width = $( jqSelector ).width();
+      this.display_height = $( jqSelector ).height();
+      this.r = Raphael( $( this.display_in_element )[0], this.display_width, this.display_height);
       this.left_margin = 100;
       this.right_margin = 100;
       this.y_space = 10;
